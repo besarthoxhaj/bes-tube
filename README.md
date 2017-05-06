@@ -1,8 +1,6 @@
-# Boilreact
+# BesTube
 
-[![Build Status](https://travis-ci.org/besarthoxhaj/boilreact.svg?branch=master)](https://travis-ci.org/besarthoxhaj/boilreact)
-
-Simple boilerplate for react app.
+Play with the YouTube api.
 
 ### Production
 
@@ -26,3 +24,8 @@ In development run:
 Check `localhost:3000`.
 
 ### Testing
+
+```
+  $ yarn install
+  $ yarn test
+```
