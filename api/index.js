@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 var server = require('./server');
 
 server.start(() => {

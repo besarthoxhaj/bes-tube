@@ -1,50 +1,95 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
+import { createStructuredSelector as createSelector } from 'reselect';
 
+import c from '../../constants';
+import * as homeSel from './selectors';
 import * as modalActions from '../Modal/actions';
+import SearchResult from '../../components/SearchResult';
 
-class Counter extends Component {
+class Home extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { searchValue: '' };
+    this.updateSearch = this.updateSearch.bind(this);
+    this.sendSearch = this.sendSearch.bind(this);
+  };
+
   render() {
     return (
       <div>
-        <h1>Home</h1>
-        <button
-          data-home-click="openModal"
-          onClick={this.props.openModal}
-        >Open Modal</button>
-        <button
-          data-home-click="goToCounter"
-          onClick={this.props.goToCounter}
-        >Counter</button>
+        <h1>Search</h1>
+        <input
+          data-search-input="changeText"
+          type='text'
+          onChange={this.updateSearch}
+          onKeyDown={this.sendSearch}
+          value={this.state.searchValue}
+        />
+        <div>
+          {this.props.searchRes.map(elm => {
+            return (
+              <SearchResult
+                key={`search-result-${elm['id']['videoId']}`}
+                title={elm['snippet']['title']}
+                thumbnail={elm['snippet']['thumbnails']['medium']['url']}
+                videoId={elm['id']['videoId']}
+                sendDownload={this.props.sendDownload}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   };
+
+  updateSearch({target:{value}}) {
+    this.setState({searchValue:value});
+  };
+
+  sendSearch(evt) {
+    if(evt['key'] === 'Enter') {
+      evt.preventDefault();
+      this.props.sendSearch(this.state['searchValue']);
+    }
+  };
 }
 
-export const mapStateToProps = (state) => {
-  return {
-    ...state
-  };
-};
+export const mapStateToProps = createSelector({
+  searchRes: homeSel.getSearchRes(),
+  isLoadingRes: homeSel.isLoadingRes(),
+});
 
-export const mergeProps = (stateProps, dispatchProps, ownProps) => {
+export const mergeProps = (
+  stateProps,
+  dispatchProps,
+  ownProps
+) => {
 
   const { dispatch } = dispatchProps;
 
   return {
-    openModal: () => {
-      dispatch(push({
-        pathname: '/',
-        search:'entry=77',
-        query:{entry:'77'},
-      }));
-      dispatch(modalActions.show());
+    ...stateProps,
+    ...ownProps,
+    sendSearch: (search:string) => {
+      dispatch({
+        type: c.POST_SEARCH,
+        value: search,
+      });
     },
-    goToCounter: () => {
-      dispatch(push('/count'));
-    }
+    sendDownload(videoId:string) {
+      dispatch({
+        type: c.POST_DOWNLOAD,
+        value: videoId,
+      });
+    },
   };
 };
 
-export default connect(mapStateToProps, undefined, mergeProps)(Counter);
+export default connect(
+  mapStateToProps,
+  undefined,
+  mergeProps
+)(Home);

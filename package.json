@@ -36,12 +36,14 @@
     "babel-eslint": "^7.1.1",
     "babel-polyfill": "^6.23.0",
     "css-loader": "^0.23.1",
+    "dotenv": "^4.0.0",
     "enzyme": "2.8.2",
     "eslint": "^3.14.1",
     "eslint-plugin-react": "^6.9.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "flow-bin": "^0.44.2",
     "flow-watch": "^1.1.1",
+    "googleapis": "^19.0.0",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-svg-symbols": "^2.0.2",
@@ -79,6 +81,7 @@
     "style-loader": "^0.13.2",
     "sync-flow": "^1.0.0",
     "url-parse": "^1.1.8",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "ytdl-core": "^0.13.2"
   }
 }

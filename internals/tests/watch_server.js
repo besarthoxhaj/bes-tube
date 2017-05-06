@@ -8,8 +8,11 @@ const nodemon = require('nodemon');
 const notifier = require('node-notifier');
 
 nodemon({
-  script: 'tests/runner.js',
-  ignore: ['tests/_snapshots/*', 'data/*'],
+  script: 'api/index.js',
+  watch: ['api'],
+  env: {
+    NODE_ENV: 'test'
+  }
 }).on('start', function () {
   // process started correctly
 }).on('restart', function() {
@@ -20,9 +23,9 @@ nodemon({
     process.stdout.write('\u001b[3J');
   }
 
-  console.log('RESTARTING TESTS\n');
+  console.log('RESTARTING SERVER\n');
 }).on('crash', function () {
-  notifier.notify('Tests failed');
+  notifier.notify('Server crashed');
 }).on('exit', function() {
   // process exit correctly with no
   // errors

@@ -3,6 +3,7 @@ import type { Children } from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../Header';
+import Footer from '../Footer';
 import Router from '../Router';
 import Modal from '../Modal';
 import Alert from '../Alert';
@@ -16,6 +17,7 @@ export class AppComp extends React.Component {
         <div style={this.getStyle()}>
           <Header />
           <Router history={this.props.history} />
+          <Footer />
         </div>
       </div>
     );

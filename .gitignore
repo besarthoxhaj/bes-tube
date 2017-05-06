@@ -12,3 +12,10 @@ node_modules
 
 # Tests
 tests/_snapshots
+
+# Security
+.env
+key.json
+
+# Videos
+_videos/

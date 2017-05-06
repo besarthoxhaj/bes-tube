@@ -9,7 +9,7 @@ import { createHashHistory } from 'history';
 import App from './main';
 import styles from '../sass/entry.scss';
 import createStore from './store';
-import analyticsSagas from './containers/Analytics/sagas';
+import appSagas from './containers/App/sagas';
 
 /**
  * IMPORTANT: History object
@@ -22,14 +22,12 @@ import analyticsSagas from './containers/Analytics/sagas';
  */
 const history = createHashHistory();
 
-
 /**
  * IMPORTANT
  * Init Store and Sagas
  */
 const store = createStore({ history });
-
-analyticsSagas.map(store.runSaga);
+appSagas.map(store.runSaga);
 
 const appHtmlAppend = document.getElementById('root');
 

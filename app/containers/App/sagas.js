@@ -1,9 +1,8 @@
 import { take } from 'redux-saga/effects';
 
-export function* start() {
-
-}
+import c from '../../constants';
+import * as homeSagas from '../Home/sagas';
 
 export default [
-  start
+  homeSagas['watchSubmitSearch']
 ];
