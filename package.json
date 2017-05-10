@@ -61,6 +61,7 @@
     "node-sass": "^3.7.0",
     "nodemon": "^1.11.0",
     "path-parser": "^2.0.2",
+    "pg": "^6.1.5",
     "phantom": "^4.0.2",
     "postcss-loader": "^0.9.1",
     "query-string": "^4.3.4",

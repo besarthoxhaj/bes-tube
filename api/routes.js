@@ -28,6 +28,13 @@ module.exports = [
   },
   {
     method: 'GET',
+    path: '/video/{param*}',
+    handler: (req, res) => {
+      return ;
+    }
+  },
+  {
+    method: 'GET',
     path: '/test/{param*}',
     handler: {
       directory: {
@@ -51,7 +58,7 @@ module.exports = [
       ytdl(
         `http://www.youtube.com/watch?v=${payload['videoId']}`
       ).pipe(
-        fs.createWriteStream(`${BASE_PATH}/${payload['videoId']}.flv`)
+        fs.createWriteStream(`${BASE_PATH}/${payload['videoId']}.mp4`)
       );
 
       return res({
