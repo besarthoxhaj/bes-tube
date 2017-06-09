@@ -13,7 +13,9 @@
     "flow": "flow",
     "flow:watch": "flow-watch",
     "test:watch": "node internals/tests/watch_tests.js",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "storybook": "start-storybook -p 6005",
+    "build-storybook": "build-storybook"
   },
   "author": "Besart Hoxhaj",
   "license": "ISC",
@@ -30,7 +32,8 @@
     "rimraf": "^2.6.0",
     "tape": "^4.6.3",
     "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "webpack-dev-server": "^2.2.0",
+    "@storybook/react": "^3.1.2"
   },
   "dependencies": {
     "babel-eslint": "^7.1.1",
