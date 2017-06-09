@@ -7,7 +7,7 @@
 import { mergeAll } from 'ramda';
 
 export const dev = {
-  api: `http://localhost:9000`,
+  api: `http://localhost:9005`,
 };
 
 export const stag = {

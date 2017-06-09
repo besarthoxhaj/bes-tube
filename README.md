@@ -19,7 +19,7 @@ Hope that helps Melanie:)
   $ yarn start
 ```
 
-Check `localhost:9000`.
+Check `localhost:9005`.
 
 ### Development
 
@@ -30,7 +30,7 @@ In development run:
   $ yarn dev
 ```
 
-Check `localhost:3000`.
+Check `localhost:3005`.
 
 ### Testing
 
