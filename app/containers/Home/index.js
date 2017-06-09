@@ -7,7 +7,6 @@ import * as R from 'ramda';
 import c from '../../constants';
 import * as homeSel from './selectors';
 import * as modalActions from '../Modal/actions';
-import SearchResult from '../../components/SearchResult';
 import SearchResults from '../../components/SearchResults';
 
 class Home extends Component {

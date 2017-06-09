@@ -11,25 +11,30 @@ export default class Result extends React.Component {
 
   render() {
     return (
-      <a
+      <div
+        className="[ c-search-item ]"
         data-video-click={this.props.videoId}
-        style={{cursor:'pointer'}}
         onClick={() => this.props.sendDownload(this.props.videoId)}
+        style={this.getStyleCont()}
       >
-        <div style={this.getStyleCont()}>
-          <img src={this.props.thumbnail} />
-          <span>
+        <div
+          className="[ c-search-item__image ]"
+          style={{
+            backgroundImage:`url(${this.props.thumbnail})`
+          }}
+        />
+        <div className="[ c-search-item__desc ]">
+          <p>
             {this.props.title}
-          </span>
+          </p>
         </div>
-      </a>
+      </div>
     );
   };
 
   getStyleCont() {
     return {
       backgroundColor: utils.getColor(),
-      height: 200,
     };
   };
 

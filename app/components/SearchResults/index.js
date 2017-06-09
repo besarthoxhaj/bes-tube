@@ -6,8 +6,6 @@ import Result from './_result';
 export default class SearchResults extends React.PureComponent {
   render() {
 
-    console.log(`this.props`,this.props);
-
     if(this.props.searchRes === undefined) {
       return (
         <div>
