@@ -8,17 +8,7 @@ import { btns } from './_helpers';
 import utils from '../_utils';
 import appSagas from '../containers/App/sagas';
 
-test('HOME', t => {
-
-  // nock.cleanAll();
-  //
-  // nock(`${config('api')}`)
-  //   .post(`/api/search`)
-  //   .times(3)
-  //   .reply(200, (url,body) => {
-  //     const text = JSON.parse(body)['text'].toUpperCase();
-  //     return data[`GET.SEARCH.${text}`];
-  //   });
+test('001 - HOME', t => {
 
   const { dom, rootElm } = utils.start();
 
@@ -29,58 +19,64 @@ test('HOME', t => {
   global.ReactDOM = require('react-dom');
   const Main = require('../main').default;
 
-  t.test('HOME - SIMPLE SEARCH', st => {
+  t.test('001.01 - HOME - SIMPLE SEARCH', st => {
 
-    const { store, history } = utils.start();
+    nock.cleanAll();
+    nock(`${config('api')}`)
+      .post(`/api/search`)
+      .times(3)
+      .reply(200, (url,body) => {
+        const text = JSON.parse(body)['text'].toUpperCase();
+        return data[`GET.SEARCH.${text}`];
+      });
+    nock(`${config('api')}`)
+      .post(`/api/download`)
+      .reply(200,{});
 
-    const exec = [
+    const {store,history} = utils.start();
+
+    syncFlow([
       () => {
-        ReactDOM.render(<Main store={store} history={history} />, rootElm);
         appSagas.map(store.runSaga);
+        ReactDOM.render(<Main store={store} history={history} />, rootElm);
       },
       () => {
-        t.comment('Type text into input');
+        st.comment('Type text into input');
         btns.insertSearch(window,document,'Hello');
       },
       () => {
-        t.comment('...wait and press `Enter`');
+        st.comment('...wait and press `Enter`');
         btns.enterSearch(window,document);
       },
-      () => { t.comment('...wait') },
+      () => { st.comment('...wait') },
       () => {
         utils.snap({
-          numId:'001',
+          numId:'001.01.01',
           mess:'Enter input text'
         },utils.log(dom.serialize()));
       },
       () => {
-        t.comment('Type text into input');
+        st.comment('Type text into input');
         btns.insertSearch(window,document,'');
         btns.insertSearch(window,document,'Messi');
       },
       () => {
-        t.comment('...wait and press `Enter`');
+        st.comment('...wait and press `Enter`');
         btns.enterSearch(window,document);
       },
-      () => { t.comment('...wait') },
+      () => { st.comment('...wait') },
       () => {
         utils.snap({
-          numId:'002',
+          numId:'001.01.02',
           mess:'Enter Messi text'
         },utils.log(dom.serialize()));
         btns.downloadMessi(document).click();
       },
-      () => { t.comment('...wait') },
       () => {
-
-      },
-      () => {
-        t.comment('APP: unmount Component');
+        st.comment('APP: unmount Component');
         ReactDOM.unmountComponentAtNode(rootElm);
-        t.end();
+        st.end();
       },
-    ];
-
-    syncFlow(exec, t.end, 500);
+    ],st.end,500);
   });
 });
