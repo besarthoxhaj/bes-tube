@@ -4,7 +4,7 @@ import type { SearchResult } from '../../types/api';
 
 export type HomeState = {
   isLoadingRes: boolean,
-  searchRes: Array<SearchResult>,
+  searchRes: ?Array<SearchResult>,
 };
 
 export type HomeActions =

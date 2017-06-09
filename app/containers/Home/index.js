@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { createStructuredSelector as createSelector } from 'reselect';
+import * as R from 'ramda';
 
 import c from '../../constants';
 import * as homeSel from './selectors';
 import * as modalActions from '../Modal/actions';
 import SearchResult from '../../components/SearchResult';
+import SearchResults from '../../components/SearchResults';
 
 class Home extends Component {
 
@@ -28,19 +30,9 @@ class Home extends Component {
           onKeyDown={this.sendSearch}
           value={this.state.searchValue}
         />
-        <div>
-          {this.props.searchRes.map(elm => {
-            return (
-              <SearchResult
-                key={`search-result-${elm['id']['videoId']}`}
-                title={elm['snippet']['title']}
-                thumbnail={elm['snippet']['thumbnails']['medium']['url']}
-                videoId={elm['id']['videoId']}
-                sendDownload={this.props.sendDownload}
-              />
-            );
-          })}
-        </div>
+        <SearchResults
+          searchRes={this.props.searchRes}
+        />
       </div>
     );
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as utils from '../../utils';
 
-export default class SearchResult extends React.Component {
+export default class Result extends React.Component {
 
   constructor(props) {
     super(props);

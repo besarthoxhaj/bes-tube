@@ -4,7 +4,7 @@ import * as c from './constants';
 
 const initialState:HomeState = {
   isLoadingRes: true,
-  searchRes: [],
+  searchRes: undefined,
 };
 
 export default function(

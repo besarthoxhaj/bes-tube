@@ -30,5 +30,13 @@ module.exports = (config) => {
       html.prettyPrint(doc.toString(),{indent_size:2}),
       'utf8'
     );
+
+    fs.writeFileSync(
+      'assets/svg-symbols.js',
+      `module.exports = \`${
+        html.prettyPrint(inputFile.toString(),{indent_size:2})
+      }\`;`,
+      'utf8'
+    );
   };
 };
