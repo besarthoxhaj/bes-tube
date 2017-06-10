@@ -1,6 +1,13 @@
+@import './generic/_normalize.scss';
+@import './generic/_box-sizing.scss';
 @import './settings/_core.scss';
+
 @import './tools/_colors.scss';
 @import './tools/_font-size.scss';
+@import './tools/_hidden.scss';
+
+@import './utils/_hide.scss';
+
 @import './general/_page.scss';
 
 @import './components/_search.item.scss';
