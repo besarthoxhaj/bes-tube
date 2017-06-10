@@ -5,6 +5,11 @@ export type ApiSearchResult = {
   data: SearchQueryResult,
 };
 
+export type LibraryResult = {
+  status: string,
+  data: any,
+};
+
 export type SearchQueryResult = {
   kind: string,
   etag: string,
