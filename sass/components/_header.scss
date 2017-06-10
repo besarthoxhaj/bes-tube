@@ -1,0 +1,48 @@
+.c-header {
+  width: 100%;
+  // position: fixed;
+  // z-index: map-get($zindex, header);
+
+  &__inner {
+    padding: 9px 0px;
+    background: #fff;
+    opacity: .9;
+  }
+
+  &__nav {
+    padding-right: 12px;
+    padding-left: 12px;
+    @include inuit-clearfix();
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-image: linear-gradient(to bottom, rgba(65, 77, 84, 0.17), rgba(65, 77, 84, 0.0));
+  }
+
+  &__list {
+    @extend .o-list-inline;
+    margin: 0;
+    width: 40%;
+    display: inline-block;
+    float: left;
+    position: relative;
+    padding: 9px 0px;
+  }
+
+  &__list-item {
+    @extend .o-list-inline__item;
+  }
+
+  &__link {
+    text-decoration: none;
+    margin: 0px 12px;
+    cursor: pointer;
+    &:hover {
+      color: palette('medium','red');
+    }
+  }
+}

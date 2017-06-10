@@ -1,0 +1,35 @@
+$palettes: (
+  'base': (
+    'blue': #2196F3,
+    'red': #f55051,
+    'yellow': #fbd24f,
+    'grey': #414d54,
+  ),
+  'medium': (
+    'blue': #1387da,
+    'red': #ff7470,
+    'yellow': #fedc71,
+    'grey': #6f7e82,
+  ),
+  'light': (
+    'blue': #63afe6,
+    'red': #ffaaaa,
+    'yellow': #ffe592,
+    'grey': #b2bdc0,
+  ),
+  'default': (
+    'white': #ffffff,
+    'black': #000000
+  )
+);
+
+/**
+ * Maps and returns a color from the
+ * colors object
+ * @param  {String} $palette [base]
+ * @param  {String} $tone    [variant]
+ * @return {String}          [base]
+ */
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get($palettes, $palette), $tone);
+}

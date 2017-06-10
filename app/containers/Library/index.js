@@ -10,7 +10,11 @@ import * as modalActions from '../Modal/actions';
 
 class Library extends React.Component {
   render() {
-    return (null);
+    return (
+      <div>
+        Library
+      </div>
+    );
   };
 };
 

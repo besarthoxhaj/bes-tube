@@ -7,3 +7,13 @@ export const selectDomain = (
 ) => (state:AppState) => {
   return state['library'];
 };
+
+export const getLibrary = () => create(
+  selectDomain(),
+  (subState) => subState['library']
+);
+
+export const isLoading = () => create(
+  selectDomain(),
+  (subState) => subState['isLoading']
+);

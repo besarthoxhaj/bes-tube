@@ -5,6 +5,7 @@ import home from './containers/Home/reducer';
 import router from './containers/Router/reducer';
 import alert from './containers/Alert/reducer';
 import modal from './containers/Modal/reducer';
+import library from './containers/Library/reducer';
 
 const rootReducer = combineReducers({
   global,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   router,
   alert,
   modal,
+  library,
 });
 
 export default rootReducer;

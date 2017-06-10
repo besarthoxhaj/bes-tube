@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 
-import Counter from '../Counter';
 import Home from '../Home';
+import Library from '../Library';
 import NotFound from '../NotFound';
 
 export class RouterComp extends React.Component {
@@ -14,7 +14,7 @@ export class RouterComp extends React.Component {
         <div>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/count' component={Counter} />
+            <Route exact path='/library' component={Library} />
             <Route component={NotFound} />
           </Switch>
         </div>
