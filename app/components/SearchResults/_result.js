@@ -1,5 +1,7 @@
 import React from 'react';
+
 import * as utils from '../../utils';
+import { ImgThumbnail } from '../Utils';
 
 export default class Result extends React.Component {
 
@@ -14,14 +16,11 @@ export default class Result extends React.Component {
       <div
         className="[ c-search-item ]"
         data-video-click={this.props.videoId}
-        onClick={() => this.props.sendDownload(this.props.videoId)}
         style={this.getStyleCont()}
       >
-        <div
-          className="[ c-search-item__image ]"
-          style={{
-            backgroundImage:`url(${this.props.thumbnail})`
-          }}
+        <ImgThumbnail
+          imgSrc={this.props.thumbnail}
+          onClick={() => this.props.sendDownload(this.props.videoId)}
         />
         <div className="[ c-search-item__desc ]">
           <p>
