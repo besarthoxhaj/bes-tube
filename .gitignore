@@ -17,5 +17,6 @@ tests/_snapshots
 .env
 key.json
 
-# Videos
+# Media
 _videos/
+_audios/

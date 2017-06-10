@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector as createSelector } from 'reselect';
 
-class Footer extends React.PureComponent {
+import { Controls, Progress } from '../../components/Utils';
+
+export class Footer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -11,8 +13,15 @@ class Footer extends React.PureComponent {
 
   render() {
     return (
-      <div style={this.getStyle()}>
-        <span>Footer</span>
+      <div className="[ c-footer ]">
+        <div className="[ c-footer__inner ]">
+          <div className="[ c-footer__controls ]">
+            <Controls/>
+          </div>
+          <div className="[ c-footer__progress ]">
+            <Progress/>
+          </div>
+        </div>
       </div>
     );
   };

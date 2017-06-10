@@ -19,6 +19,13 @@ module.exports = `<svg xmlns="http://www.w3.org/2000/svg">
       </g>
     </g>
   </symbol>
+  <symbol id="next-prev" viewBox="0 0 24 24">
+    <g fill="none" fill-rule="evenodd">
+      <path d="M0 0h24v24H0z" />
+      <path fill="#000" fill-rule="nonzero" d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"
+      />
+    </g>
+  </symbol>
   <symbol id="pause" viewBox="0 0 11 18">
     <path d="M7.361 1.492a1.5 1.5 0 1 1 3 0v15.016a1.5 1.5 0 0 1-3 0V1.492zm-6.861 0a1.5 1.5 0 1 1 3 0v15.016a1.5 1.5 0 0 1-3 0V1.492z"
     stroke="" fill-rule="evenodd" />

@@ -17,7 +17,7 @@ export default class SmallPlayIcon extends React.Component {
           : <svg className="[ play ]" data-svg-colour="fill" role="img">
               <use xlinkHref="#play"></use>
             </svg>
-          }
+        }
       </div>
     );
   };

@@ -1,0 +1,21 @@
+.c-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__prev {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__play-pause {
+    margin: 0 5px;
+  }
+}
