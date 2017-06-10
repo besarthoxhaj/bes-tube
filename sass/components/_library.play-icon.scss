@@ -1,0 +1,20 @@
+.c-library-paly-icon {
+  cursor: pointer;
+  background-color: palette('medium','grey');
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    fill: #fff;
+    width: 13px;
+    height: 13px;
+  }
+
+  .play {
+    padding-left: 2px;
+  }
+}

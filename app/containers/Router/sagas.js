@@ -5,6 +5,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import c from '../../constants';
 import * as modalSel from '../Modal/selectors';
+import * as librarySagas from '../Library/sagas';
 import * as utils from '../../utils';
 import config from '../../config';
 
@@ -38,8 +39,15 @@ export function watchPathChange(history) {
       const isSamePath = curr['pathname'] === prev['pathname'];
       const isDiffPath = !isSamePath;
 
+      const isLibrary = curr['pathname'] == '/library';
+
       if(isDiffPath) {
         window.scrollTo(0,0);
+      }
+
+      if(isDiffPath && isLibrary) {
+        yield call(librarySagas.getLibrary);
+        return;
       }
     });
   }

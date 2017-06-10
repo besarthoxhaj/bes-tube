@@ -8,3 +8,4 @@ import '../sass/entry.scss';
 import './Utils';
 import './SearchResults';
 import './Head';
+import './LibraryResults.js';

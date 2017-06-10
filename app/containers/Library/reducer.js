@@ -12,6 +12,12 @@ export default function(
   action:LibraryActions
 ):LibraryState {
   switch (action.type) {
+    case c.LOAD_LIBRARY_RESULTS:
+      return {
+        ...state,
+        isLoading: false,
+        library: action.data,
+      };
     default:
       return {
         ...state,

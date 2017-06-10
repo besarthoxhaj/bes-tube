@@ -4,3 +4,4 @@
  */
 
 export const ImgThumbnail = require('./ImgThumbnail').default;
+export const SmallPlayIcon = require('./SmallPlayIcon').default;

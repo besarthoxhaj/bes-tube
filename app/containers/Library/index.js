@@ -7,12 +7,15 @@ import * as R from 'ramda';
 import c from '../../constants';
 import * as librarySel from './selectors';
 import * as modalActions from '../Modal/actions';
+import LibraryResults from '../../components/LibraryResults';
 
 class Library extends React.Component {
   render() {
     return (
       <div>
-        Library
+        <LibraryResults
+          libraryRes={this.props.library}
+        />
       </div>
     );
   };

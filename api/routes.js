@@ -100,5 +100,12 @@ module.exports = [
         });
       });
     }
+  },
+  {
+    method: 'GET',
+    path: '/api/library',
+    handler: (req, res) => {
+      return res(data['GET.LIBRARY.ALL']);
+    }
   }
 ];

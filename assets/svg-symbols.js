@@ -19,4 +19,12 @@ module.exports = `<svg xmlns="http://www.w3.org/2000/svg">
       </g>
     </g>
   </symbol>
+  <symbol id="pause" viewBox="0 0 11 18">
+    <path d="M7.361 1.492a1.5 1.5 0 1 1 3 0v15.016a1.5 1.5 0 0 1-3 0V1.492zm-6.861 0a1.5 1.5 0 1 1 3 0v15.016a1.5 1.5 0 0 1-3 0V1.492z"
+    stroke="" fill-rule="evenodd" />
+  </symbol>
+  <symbol id="play" viewBox="0 0 14 18">
+    <path d="M1.727 17.589c-.919.621-1.664.22-1.664-.867V1.412C.063.31.81-.077 1.727.544L12.66 7.94c.919.622.917 1.63 0 2.251L1.727 17.59z"
+    stroke="" fill-rule="evenodd" />
+  </symbol>
 </svg>`;

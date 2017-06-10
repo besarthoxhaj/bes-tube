@@ -107,10 +107,8 @@ export const getColor = () => {
     '#669EFF',
     '#29A634',
     '#C274C2',
-    '#30404D',
     '#9E2B0E',
     '#A82A2A',
-    '#10161A',
   ];
 
   return COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -156,9 +154,11 @@ export const getPrev = (history):{
  */
 export const GA = (() => {
 
-  const ReactGA = global._TEST_
-    ? require('../_utils/mocks/react-ga')
-    : require('react-ga');
+  // const ReactGA = global._TEST_
+  //   ? require('../_utils/mocks/react-ga')
+  //   : require('react-ga');
+
+  const ReactGA = require('../_utils/mocks/react-ga');
 
   ReactGA.initialize(config('id'),{
     debug:config('debug'),
