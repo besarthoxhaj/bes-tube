@@ -31,6 +31,7 @@ class Home extends Component {
         />
         <SearchResults
           searchRes={this.props.searchRes}
+          sendDownload={this.props.sendDownload}
         />
       </div>
     );
