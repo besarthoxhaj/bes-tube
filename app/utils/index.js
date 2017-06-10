@@ -2,6 +2,7 @@ import * as R from 'ramda';
 import queryString from 'query-string';
 
 import * as U from './helpers';
+import config from '../config';
 
 /**
  * Substitutes

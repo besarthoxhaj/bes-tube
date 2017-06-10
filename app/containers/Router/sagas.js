@@ -4,6 +4,7 @@ import { select, put, call, take, takeEvery, fork } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import c from '../../constants';
+import * as modalSel from '../Modal/selectors';
 import * as utils from '../../utils';
 import config from '../../config';
 
