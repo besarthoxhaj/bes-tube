@@ -114,3 +114,54 @@ export const getColor = () => {
 
   return COLORS[Math.floor(Math.random() * COLORS.length)];
 };
+
+/**
+ * Get previous history state.
+ */
+export const getPrev = (history):{
+  pathname: string,
+  search: string,
+  hash: string,
+  key: string,
+} => {
+
+  // BUG: during the tests for some reason
+  // past entries are duplicated. This filter
+  // will ensure that only unique keys are
+  // present. To make it more weird it
+  // doesn't happend in production
+  if(history.entries && global._TEST_) {
+    history.entries = R.uniqWith(
+      (a,b) => a['key'] === b['key'],
+      history.entries
+    );
+  }
+
+  const len = (history.entries || {}).length;
+
+  if(len === 1 || len === 0 || len === undefined) {
+    return {};
+  }
+
+  const prev = history.entries.slice(len-2,len-1);
+  const clone = JSON.parse(JSON.stringify(prev[0]));
+  return clone;
+};
+
+/**
+ * Google Analytics.
+ * NOTE: this is a self invoking
+ * function.
+ */
+export const GA = (() => {
+
+  const ReactGA = global._TEST_
+    ? require('../_utils/mocks/react-ga')
+    : require('react-ga');
+
+  ReactGA.initialize(config('id'),{
+    debug:config('debug'),
+  });
+
+  return ReactGA;
+})();

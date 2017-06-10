@@ -27,7 +27,7 @@ const history = createHashHistory();
  * Init Store and Sagas
  */
 const store = createStore({ history });
-appSagas.map(store.runSaga);
+appSagas({history}).map(store.runSaga);
 
 const appHtmlAppend = document.getElementById('root');
 

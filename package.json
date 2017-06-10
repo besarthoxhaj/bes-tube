@@ -72,6 +72,7 @@
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.4.2",
+    "react-ga": "^2.2.0",
     "react-motion": "^0.4.8",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
